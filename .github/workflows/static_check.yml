@@ -14,4 +14,4 @@ jobs:
         run: sudo apt-get install -y cppcheck
 
       - name: Run cppcheck
-        run: cppcheck src/*
+        run: cppcheck --error-exitcode=1 src/*
