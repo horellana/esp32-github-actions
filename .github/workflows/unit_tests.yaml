@@ -1,0 +1,17 @@
+name: Test pure code (no hardware dependency)
+
+on: [push]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Compile tests
+        run: gcc -I src/ test/main.cpp src/*.cpp -o tests
+
+      - name: Run tests
+        run: ./tests
